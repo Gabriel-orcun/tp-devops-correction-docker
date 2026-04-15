@@ -20,7 +20,7 @@ jobs:
           java-version: 21
 
       - name: Build and test
-        run: mvn clean verify --file simple-api/pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=Gabriel-orcun_tp-devops-correction-docker -Dsonar.organization=gabriel-orcun -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file simple-api/pom.xml
 
   build-and-push-docker-image:
     needs: test-backend
