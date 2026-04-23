@@ -1,0 +1,10 @@
+- name: Run Application
+  docker_container:
+    name: simple-api
+    image: gabrielorcun/tp-devops-simple-api:latest
+    networks:
+      - name: app-network
+    env:
+      DATABASE_HOST: "database" # Le nom du container database
+      DATABASE_PASSWORD: "pwd" # Le mot de passe défini plus haut
+    restart_policy: always

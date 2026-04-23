@@ -1,0 +1,9 @@
+#SPDX-License-Identifier: MIT-0
+- name: Run Database
+  docker_container:
+    name: database # Doit être "database" car l'API cherche ce nom
+    image: gabrielorcun/tp-devops-database:latest
+    networks:
+      - name: app-network
+    env:
+      POSTGRES_PASSWORD: "pwd"

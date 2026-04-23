@@ -1,0 +1,8 @@
+- name: Run HTTPD Proxy
+  docker_container:
+    name: proxy
+    image: gabrielorcun/tp-devops-httpd:latest
+    ports:
+      - "80:80"
+    networks:
+      - name: app-network
