@@ -1,5 +1,4 @@
 services:
-
   database:
     build: "database"
     environment:
@@ -23,9 +22,11 @@ services:
       - "80:80"
     networks:
       - my-network
+    depends_on:
+      - simple-api
 
 networks:
   my-network:
 
 volumes:
-  db-volume :
+  db-volume:

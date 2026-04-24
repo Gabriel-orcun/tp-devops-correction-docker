@@ -55,10 +55,11 @@ jobs:
       - name: Login DockerHub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: Build and push httpd
+      - name: Build and push httpd (with frontend)
         uses: docker/build-push-action@v6
         with:
-          context: ./http-server
+          context: .
+          file: ./http-server/Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-httpd:latest
